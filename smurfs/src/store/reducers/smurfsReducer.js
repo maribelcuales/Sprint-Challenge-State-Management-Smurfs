@@ -1,5 +1,7 @@
 const initialState = {
-  smurfs: []
+  smurfs: [],
+  isFetching: false,
+  error: ""
 }
 
 export const smurfsReducer = (state=initialState , action) => {
