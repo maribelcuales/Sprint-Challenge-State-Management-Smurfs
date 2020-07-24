@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux'; 
+// import Loader from 'react-loader-spinner'; 
 
 const SmurfsList = () => {
   return(
@@ -6,4 +8,16 @@ const SmurfsList = () => {
   );
 };
 
-export default SmurfsList; 
+const mapStateToProps = state => {
+  console.log("fetching state", state); 
+  return {
+    smurfs: state.smurfsReducer.smurfs,
+    isFetching: state.smurfsReducer.isFetching,
+    error: state.smurfsReducer.error
+  }
+}; 
+
+export default connect(
+  mapStateToProps,
+  {}
+)(SmurfsList); 
