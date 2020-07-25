@@ -24,7 +24,18 @@ export const smurfsReducer = (state=initialState , action) => {
         isFetching: false,
         error: action.payload
       }
+    case "ADD_NEW_SMURF": 
+      const addSmurf = {
+        name: action.payload.name,
+        age: action.payload.age,
+        height: action.payload.height,
+        id: Date.now(),
+      }
+      return {
+        ...state,
+        smurfs: [...state.smurfs, addSmurf]
+      }; 
     default: 
-    return state;
+      return state;
   }
 }
