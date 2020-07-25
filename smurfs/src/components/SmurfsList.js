@@ -2,7 +2,8 @@ import React, {useEffect} from 'react';
 import { connect } from 'react-redux'; 
 import Loader from 'react-loader-spinner'; 
 
-import { fetchSmurf } from '../store/actions/smurfActions.js'; 
+import { fetchSmurf } from '../store/actions/smurfActions'; 
+import SmurfCard from './SmurfCard';
 
 const SmurfsList = props => {
   useEffect(() => {
