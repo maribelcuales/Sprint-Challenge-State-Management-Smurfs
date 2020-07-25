@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux'; 
-// import Loader from 'react-loader-spinner'; 
+import Loader from 'react-loader-spinner'; 
 
-const SmurfsList = () => {
+import { fetchSmurf } from '../store/actions/smurfActions.js'; 
+
+const SmurfsList = props => {
+  useEffect(() => {
+    props.fetchSmurf();
+  }, []);
+  console.log({ props })
+
   return(
     <h1>Welcome to Smurf World!</h1>
   );
@@ -19,5 +26,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { fetchSmurf }
 )(SmurfsList); 
