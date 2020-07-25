@@ -11,7 +11,26 @@ const SmurfsList = props => {
   console.log({ props })
 
   return(
-    <h1>Welcome to Smurf World!</h1>
+    <div>
+      <h1>Welcome to Smurf World!</h1>
+      {props.isFetching && (
+        <Loader 
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+        />
+      )}
+      {props.smurfs.map(smurf => {
+        console.log({ smurf }); 
+        return (
+          <div>
+            <SmurfCard smurf={smurf}/> 
+          </div>
+        )
+      })}
+      {props.error && <p className="error">{props.erro}</p>}
+    </div>
   );
 };
 
