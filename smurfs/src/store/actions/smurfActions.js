@@ -17,3 +17,7 @@ export const fetchSmurf = () => {
       });
   };
 };
+
+export const addSmurf = newSmurf => {
+  return { type: "ADD_NEW_SMURF", payload: newSmurf }
+}
