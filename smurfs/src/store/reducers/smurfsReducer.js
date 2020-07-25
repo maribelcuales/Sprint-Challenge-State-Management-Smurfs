@@ -4,7 +4,7 @@ const initialState = {
   error: ""
 }
 
-export const smurfsReducer = (state=initialState , action) => {
+export const smurfsReducer = (state = initialState , action) => {
   switch (action.type) {
     case "FETCH_SMURF_START": 
       return {
@@ -25,16 +25,19 @@ export const smurfsReducer = (state=initialState , action) => {
         error: action.payload
       }
     case "ADD_NEW_SMURF": 
-      const addSmurf = {
-        name: action.payload.name,
-        age: action.payload.age,
-        height: action.payload.height,
-        id: Date.now(),
-      }
       return {
         ...state,
-        smurfs: [...state.smurfs, addSmurf]
+        smurfs: [...state.smurfs, action.payload] 
       }; 
+    case "ADD_SMURF_FAILURE":
+      return {
+        ...state,
+        error: action.payload
+      }
+    case "GET_ALL_SMURFS": 
+      return {
+        ...state
+      }
     default: 
       return state;
   }
